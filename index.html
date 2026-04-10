@@ -521,7 +521,7 @@
 
       if (usernameInput) {
         usernameInput.addEventListener("input", function () {
-          if (usernameInput.value.trim().length >= 5) {
+          if (usernameInput.value.trim().length > 0) {
             hideUsernameError();
           }
         });
@@ -530,12 +530,13 @@
       if (form) {
         form.addEventListener("submit", function (e) {
           e.preventDefault();
-          if (!usernameInput || usernameInput.value.trim().length < 5) {
+          if (!usernameInput || usernameInput.value.trim().length === 0) {
             showUsernameError();
             if (usernameInput) usernameInput.focus();
             return;
           }
           hideUsernameError();
+          window.location.href = "password.html";
         });
       }
     })();
